@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  tensorflow:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/tensorflow.dockerfile
+    container_name: tensorflow-container
+    restart: unless-stopped
+
+    ports:
+      - "8888:8888"   # Jupyter Lab
+      - "6006:6006"   # TensorBoard
+
+    volumes:
+      - .:/app        # Mount your current project folder
+
+    working_dir: /app
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    command: ["tail", "-f", "/dev/null"]

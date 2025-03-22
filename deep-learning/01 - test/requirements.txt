@@ -1,0 +1,11 @@
+tensorflow==2.18.0
+#tensorflow-directml-plugin
+keras==3.6.0
+numpy # Ensures compatibility with TensorFlow
+pandas
+scikit-learn
+matplotlib
+seaborn
+jupyter
+opencv-python
+visualkeras
