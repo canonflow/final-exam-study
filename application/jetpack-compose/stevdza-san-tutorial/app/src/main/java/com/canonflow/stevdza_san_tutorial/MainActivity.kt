@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -24,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.canonflow.stevdza_san_tutorial.ui.theme.StevdzasantutorialTheme
 import com.canonflow.stevdza_san_tutorial.ui.theme.Typography
 
@@ -47,18 +51,42 @@ class MainActivity : ComponentActivity() {
 //                        CustomColItem(weight = 3f, color = MaterialTheme.colorScheme.secondary)
 //                        CustomColItem(weight = 1f)
 //                    }
-                    Row(
-                        modifier = Modifier
-                            .height(100.dp)
-                            .width(500.dp)
-                            .background(Color.LightGray),
-                        horizontalArrangement = Arrangement.Start,
-                    ) {
-                        CustomRowItem(weight = 3f, color = MaterialTheme.colorScheme.secondary)
-                        CustomRowItem(weight = 1f)
-                    }
+//                    Row(
+//                        modifier = Modifier
+//                            .height(100.dp)
+//                            .width(500.dp)
+//                            .background(Color.LightGray),
+//                        horizontalArrangement = Arrangement.Start,
+//                    ) {
+//                        CustomRowItem(weight = 3f, color = MaterialTheme.colorScheme.secondary)
+//                        CustomRowItem(weight = 1f)
+//                    }
+
+                    Greeting()
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun Greeting() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize(),
+        contentAlignment = Alignment.TopCenter
+    ) {
+        Box(
+            modifier = Modifier
+                .background(Color.Blue)
+                .width(100.dp)
+                .height(100.dp)
+                .verticalScroll(rememberScrollState())
+        ) {
+            Text(
+                text = "I Love Android !",
+                fontSize = 40.sp
+            )
         }
     }
 }
@@ -101,12 +129,13 @@ fun GreetingPreview() {
 //        CustomItem(weight = 3f, color = MaterialTheme.colorScheme.secondary)
 //        CustomItem(weight = 1f)
 //    }
-    Row(
-        modifier = Modifier.fillMaxSize(),
-        horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically
-    ){
-        CustomRowItem(weight = 3f, color = MaterialTheme.colorScheme.secondary)
-        CustomRowItem(weight = 1f)
-    }
+//    Row(
+//        modifier = Modifier.fillMaxSize(),
+//        horizontalArrangement = Arrangement.Start,
+//        verticalAlignment = Alignment.CenterVertically
+//    ){
+//        CustomRowItem(weight = 3f, color = MaterialTheme.colorScheme.secondary)
+//        CustomRowItem(weight = 1f)
+//    }
+    Greeting()
 }
